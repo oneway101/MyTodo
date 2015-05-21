@@ -5,7 +5,8 @@ angular.module('mytodoApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'ui.sortable'
+  'ui.sortable',
+  'firebase'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

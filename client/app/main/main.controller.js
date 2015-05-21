@@ -1,12 +1,15 @@
 'use strict';
 
 angular.module('mytodoApp')
-  .controller('Main.controller', function ($scope) {
-    $scope.todos = ['item1','item2','item3'];
+  .controller('Main.controller',function($scope,$firebaseArray) {
+    var fireRef = new Firebase ("https://mytodo-angular.firebaseio.com/");
+    $scope.todos = $firebaseArray(fireRef,$scope,'todos');
+    $scope.todo = { name: '' }
 
     $scope.addTodo = function(){
-    	$scope.todos.push($scope.todo);
-    	$scope.todo = '';
+
+    	$scope.todos.$add($scope.todo);
+    	$scope.todo = { name: '' }
     };
 
     $scope.removeTodo = function(index){

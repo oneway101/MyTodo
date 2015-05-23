@@ -1,13 +1,13 @@
-<div class='container'>
-	<h2>To do lists</h2>
+<div class='container panel panel-primary'>
+	<h2 class='panel-heading'>To do lists</h2>
 
 	<!-- Todos input -->
 	<form role='form' ng-submit='addTodo()'>
 		<div class='row'>
 			<p class='input-group'>
-				<input type='text' ng-model='todo.name' class='form-control' placeholder='What needs to be done?'>
+				<input type='text' ng-model='todo.task' class='form-control' placeholder='What needs to be done?'/>
 				<span class='input-group-btn'>
-					<input type='submit' class='btn btn-primary' value='Add'>
+					<button type='submit' class='btn btn-primary'>Add</button>
 				</span>
 			</p>
 		</div>
@@ -15,13 +15,17 @@
 
 	<!-- Todo list -->
 	<div ui-sortable ng-model='todos'>
-		<p class='input-group' ng-repeat='todo in todos' style='padding:5px 10px; curser:move;'>
-			<input type='text' ng-model='todo.name' class='form-control'>
+		<p class='input-group' ng-repeat='todo in todos'>
+			<input type='text' ng-model='todo.task' class='form-control'/>
 			<span class='input-group-btn'>
-				<button type='button' ng-click='removeTodo($index)' class='btn btn-danger'>Delete</button>
+				<button type='button' ng-model='todo.complete' ng-click='completeTodo($index)' class='btn' ng-class="{'btn-success': todo.complete}">{{todo.complete}}
+					<i class='glyphicon glyphicon-ok'></i>
+				</button>
+				<button type='button' ng-click='removeTodo($index)' class='btn btn-danger'>
+					<i class='glyphicon glyphicon-remove'></i>
+				</button>
 			</span>
 		</p>
 	</div>
-
 
 </div>

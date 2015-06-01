@@ -16,8 +16,9 @@ angular.module('mytodoApp')
     	$scope.todos.$remove(index, 1);
     };
 
-    $scope.completeTodo = function(index){
-        $scope.todos.$save($scope);
+    $scope.completeTodo = function(todo){
+        todo.complete = true;
+        $scope.todos.$save(todo);
 
     };
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mytodoApp')
-  .controller('Main.controller',function($scope,$firebaseArray) {
+    .controller('Main.controller',function($scope,$firebaseArray) {
     var fireRef = new Firebase ("https://mytodo-angular.firebaseio.com/");
     $scope.todos = $firebaseArray(fireRef,$scope,'todos');
     $scope.todo = { task: '', complete: false};

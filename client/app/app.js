@@ -13,4 +13,10 @@ angular.module('mytodoApp', [
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
+
+    $stateProvider.state('taskHistory', {
+      url:'/taskhistory',
+      controller: 'TaskHistory.controller',
+      templateUrl: '/app/main/taskHistory.html'
+    });
   });

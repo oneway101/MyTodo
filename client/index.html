@@ -28,7 +28,14 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ui-view=""></div>
+    <div class='container'>
+      <ul class='nav nav-pills'>
+        <li role='presentation'><a ui-sref='taskHistory'>Task History</a></li>
+        <li role='presentation' class='active'><a href='/'>Active Tasks</a></li>
+      </ul>
+      <div class='panel panel-primary' ui-view>
+      </div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -65,6 +72,7 @@
           <!-- injector:js -->
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/main/taskHistory.controller.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->

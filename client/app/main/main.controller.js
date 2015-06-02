@@ -24,3 +24,7 @@ angular.module('mytodoApp')
 
 
   });
+
+angular.module('mytodoApp').service('Todolist',['$rootscope' function($rootscope){
+
+});

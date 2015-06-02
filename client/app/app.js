@@ -16,7 +16,7 @@ angular.module('mytodoApp', [
 
     $stateProvider.state('taskHistory', {
       url:'/taskhistory',
-      controller: 'TaskHistory.controller',
+      /*controller: 'TaskHistory.controller',*/
       templateUrl: '/app/main/taskHistory.html'
     });
   });

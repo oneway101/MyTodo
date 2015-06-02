@@ -16,7 +16,33 @@ angular.module('mytodoApp', [
 
     $stateProvider.state('taskHistory', {
       url:'/taskhistory',
-      /*controller: 'TaskHistory.controller',*/
+      controller: 'TaskHistory.controller',
       templateUrl: '/app/main/taskHistory.html'
     });
   });
+
+
+  angular.module('mytodoApp')
+    .service('Todolist',['$firebaseArray','$rootscope', function($firebaseArray,$rootscope){
+    
+      return{
+          var fireRef = new Firebase ("https://mytodo-angular.firebaseio.com/");
+          var todos = $firebaseArray(fireRef);
+
+          addTodo: function(todos){
+            this.todos.$add(this.todo);
+            this.todo = { task: '', complete: false};
+          },
+
+          removeTodo: function(index){
+          this.todos.$remove(index, 1);
+          },
+
+          completeTodo: function(todo){
+          todo.complete = true;
+          this.todos.$save(todo);
+          }
+
+      }
+
+}]);

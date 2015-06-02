@@ -1,6 +1,6 @@
 <!-- Completed Todo list -->
-<div ui-sortable ng-model='todos'>
-	<p class='input-group' ng-repeat='todo in todos' ng-hide='todo.complete'>
+<div ui-sortable ng-model='todos' ng-controller='TaskHistory.controller'>
+	<p class='input-group' ng-repeat='todo in todos'>
 		<input type='text' ng-model='todo.task' class='form-control'/>
 		<span class='input-group-btn'>
 			<button type='button' ng-model='todo.complete' ng-click='completeTodo(todo)' class='btn' ng-class="{'btn-success': todo.complete}">

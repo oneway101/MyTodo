@@ -13,36 +13,42 @@ angular.module('mytodoApp', [
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
+    
+    $stateProvider.state('main', {
+        url: '/',
+        templateUrl: 'app/templates/main.html',
+        controller: 'activeTask.controller'
+      });
 
     $stateProvider.state('taskHistory', {
       url:'/taskhistory',
-      controller: 'TaskHistory.controller',
-      templateUrl: '/app/main/taskHistory.html'
+      templateUrl: '/app/main/taskHistory.html',
+      controller: 'TaskHistory.controller'
     });
   });
 
 
-  angular.module('mytodoApp')
-    .service('Todolist',['$firebaseArray','$rootscope', function($firebaseArray,$rootscope){
-    
-      return{
-          var fireRef = new Firebase ("https://mytodo-angular.firebaseio.com/");
-          var todos = $firebaseArray(fireRef);
+angular.module('mytodoApp')
+  .service('Todolist',['$firebaseArray','$rootScope', function($firebaseArray,$rootScope){
 
-          addTodo: function(todos){
-            this.todos.$add(this.todo);
-            this.todo = { task: '', complete: false};
-          },
+    var fireRef = new Firebase ("https://mytodo-angular.firebaseio.com/");
+    var todos = $firebaseArray(fireRef);
 
-          removeTodo: function(index){
-          this.todos.$remove(index, 1);
-          },
+    return{
 
-          completeTodo: function(todo){
-          todo.complete = true;
-          this.todos.$save(todo);
-          }
+        addTodo: function(todos){
+          this.todos.$add();
+        },
 
-      }
+        removeTodo: function(index){
+        this.todos.$remove(index, 1);
+        },
+
+        completeTodo: function(todo){
+        todo.complete = true;
+        this.todos.$save(todo);
+        }
+
+    }
 
 }]);

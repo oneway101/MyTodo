@@ -18,3 +18,8 @@
   	background-color: #5cb85c;
   	border-color: #4cae4c;
 } */
+
+.animate-hide.ng-hide {
+  transition:0.5s linear all;
+  opacity:0;
+}

@@ -19,4 +19,8 @@ angular.module('mytodoApp')
         $scope.completedTodo = function(todo){
           Todolist.completedTodo(todo);
         };
+
+        $scope.editTodo = function(todo){
+          Todolist.editTodo(todo);
+        };
   });

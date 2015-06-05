@@ -14,7 +14,7 @@ angular.module('mytodoApp', [
 
     $locationProvider.html5Mode(true);
     
-    $stateProvider.state('main', {
+    $stateProvider.state('activeTasks', {
         url: '/',
         templateUrl: 'app/templates/main.html',
         controller: 'activeTask.controller'
@@ -22,7 +22,7 @@ angular.module('mytodoApp', [
 
     $stateProvider.state('taskHistory', {
       url:'/taskhistory',
-      templateUrl: '/app/main/taskHistory.html',
+      templateUrl: '/app/templates/taskHistory.html',
       controller: 'TaskHistory.controller'
     });
   });
@@ -35,20 +35,32 @@ angular.module('mytodoApp')
     var todos = $firebaseArray(fireRef);
 
     return{
+        getTodos: function(){
+          return todos.$loaded();
+        },
 
-        addTodo: function(todos){
-          this.todos.$add();
+        addTodo: function(todo){
+          todos.$add(todo);
+          todos.$save(todo);
+        },
+
+        editTodo: function(todo){
+          todos.$save(todo);
         },
 
         removeTodo: function(index){
-        this.todos.$remove(index, 1);
+          todos.$remove(index, 1);
         },
 
-        completeTodo: function(todo){
-        todo.complete = true;
-        this.todos.$save(todo);
-        }
+        completedTodo: function(todo){
+          todo.completed = true;
+          todos.$save(todo);
+        },
 
+        incompleteTodo: function(todo){
+          todo.completed = false;
+          todos.$save(todo);
+        }
     }
 
 }]);

@@ -13,9 +13,8 @@
 <!-- Todo list -->
 <div ui-sortable ng-model='todos'>
 	<p class='input-group animate-hide' ng-repeat='todo in todos' ng-hide='todo.completed'>
-		<input type='text' class='form-control' ng-model='todo.task' ng-change='editTodo(todo)' />
+		<input type='text' class='form-control' ng-model='todo.task' ng-change='editTodo(todo)' />{{todo}}
 		<span class='input-group-btn'>
-			<!-- <button type='submit' ng-click='editTodo(todo)' class='btn btn-info'>Edit</button> -->
 			<button type='button' ng-model='todo.completed' ng-click='completedTodo(todo)' class='btn' ng-class="{'btn-success': todo.completed}">
 				<i class='glyphicon glyphicon-ok'></i>
 			</button>

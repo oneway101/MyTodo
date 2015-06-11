@@ -22,7 +22,7 @@ angular.module('mytodoApp', [
       });
 
     $stateProvider.state('taskHistory', {
-      url:'/taskhistory',
+      url:'/taskHistory',
       templateUrl: '/app/templates/taskHistory.html',
       controller: 'TaskHistory.controller'
     });
@@ -41,7 +41,11 @@ angular.module('mytodoApp')
         },
 
         addTodo: function(todo){
-          todos.$add(todo);
+          todos.$add({
+            task: todo.task,
+            date: Firebase.ServerValue.TIMESTAMP,
+            completed: false
+          });
           todos.$save(todo);
         },
 

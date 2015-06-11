@@ -1,6 +1,5 @@
 angular.module('mytodoApp')
     .controller('activeTask.controller',function($scope,$firebaseArray,Todolist) {
-        $scope.todo = {task:"", completed:false};
 
         Todolist.getTodos()
             .then(function(todos) {
@@ -9,7 +8,7 @@ angular.module('mytodoApp')
 
         $scope.addTodo = function(todo){
         	Todolist.addTodo(todo);
-        	$scope.todo = {task:"", completed:false};
+        	$scope.todo = {task:""};
         };
 
         $scope.removeTodo = function(index){
@@ -23,4 +22,5 @@ angular.module('mytodoApp')
         $scope.editTodo = function(todo){
           Todolist.editTodo(todo);
         };
+        
   });

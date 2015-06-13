@@ -20,6 +20,12 @@
 } */
 
 .animate-hide.ng-hide {
-  transition:0.5s linear all;
-  opacity:0;
+  	transition: 0.5s linear all;
+  	opacity: 0;
+}
+
+.display-time {
+	width: 10%;
+	min-width: 20px;
+	max-width: 50px;
 }

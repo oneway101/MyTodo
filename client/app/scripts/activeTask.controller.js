@@ -22,5 +22,14 @@ angular.module('mytodoApp')
         $scope.editTodo = function(todo){
           Todolist.editTodo(todo);
         };
-        
+
+        $scope.expiredTodo = function(todo){
+          var todoDate = new moment(todo.date);
+          var setDate = new moment(todo.date).add(10,'minutes');
+          var currentDate = new moment();
+          if (setDate <= currentDate){
+            Todolist.expiredTodo(todo);
+          }
+          return 'self-destructs '+ setDate.fromNow();
+        }
   });

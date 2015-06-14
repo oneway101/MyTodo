@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title></title>
+    <title>Self-Destructing Task List</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -29,6 +29,8 @@
 
     <!-- Add your site or application content here -->
     <div class='container'>
+      <h2 class='text-center'>Self-Destructing Task List</h2>
+      <p class='lead'>Blocitoff is a web application that will manage your to-do lists by automatically deleting tasks that have not been completed after seven days.</p>
       <ul class='nav nav-pills' ng-controller='isActive.controller'>
         <li role='presentation' ng-class="{active: isActive('/taskHistory')}"><a ui-sref='taskHistory'>Task History</a></li>
         <li role='presentation' ng-class="{active: isActive('/')}"><a ui-sref='activeTasks'>Active Tasks</a></li>

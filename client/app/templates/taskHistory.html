@@ -1,9 +1,11 @@
 <!-- Completed Todo list -->
 <div ng-model='todos'>
 	<p class='input-group' ng-repeat='todo in todos' ng-show='todo.completed || todo.expired'>
-		<input type='text' ng-model='todo.task' class='form-control' disabled/>
-		<span class='input-group-addon diplay-time'>{{displayTime(todo)}}</span>
-		<span class='input-group-btn'>
+		<input type='text' ng-model='todo.task' class='form-control'  disabled/>
+		<span class='input-group-addon hidden-xs' ng-model='todo.date'>{{displayTime(todo)}}</span>
+		<label class='label label-default visible-xs-inline-block time-label' ng-model='todo.date'>{{displayTime(todo)}}
+		</label>
+		<span class='input-group-btn button-xs'>
 			<button type='button' ng-model='todo.completed' class='btn' ng-class="{'btn-success': todo.completed, 'btn-warning': todo.expired}">
 				<i class='glyphicon glyphicon-ok' ng-show='todo.completed'></i>
 				<i class='glyphicon glyphicon-exclamation-sign' ng-show='todo.expired'></i>

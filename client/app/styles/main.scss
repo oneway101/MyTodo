@@ -12,20 +12,21 @@
 	padding: 5px 10px;
 	cursor: move;
 }
- 
-/* :hover {
-	color: #fff;
-  	background-color: #5cb85c;
-  	border-color: #4cae4c;
-} */
 
 .animate-hide.ng-hide {
   	transition: 0.5s linear all;
   	opacity: 0;
 }
 
-.display-time {
-	width: 10%;
-	min-width: 20px;
-	max-width: 50px;
+.time-label {
+	font-size: 90%;
+	font-weight: normal;
+	margin-top: 5px;
 }
+
+@media (max-width:768px) {
+  .button-xs {
+  	bottom: 14px;
+  }
+}
+

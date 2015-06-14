@@ -15,13 +15,13 @@ angular.module('mytodoApp')
       };
 
       $scope.displayTime = function(todo){
-          var time = new moment(todo.date);
+          var time = todo.date;
           
           if(todo.completed == true){
-            return 'completed ' + time.fromNow();
+            return 'Completed ' + moment(time).fromNow();
           }
           else{
-            return 'expired ' + time.fromNow();
+            return 'Expired ' + moment(time).fromNow();
           };
       };
 

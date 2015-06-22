@@ -60,12 +60,7 @@ angular.module('mytodoApp')
 
         completedTodo: function(todo){
           todo.completed = true;
-          todos.$save(todo);
-        },
-
-        incompleteTodo: function(todo){
-          todo.completed = false;
-          todo.expired = false;
+          todo.date = Firebase.ServerValue.TIMESTAMP;
           todos.$save(todo);
         },
 
@@ -74,7 +69,8 @@ angular.module('mytodoApp')
             todo.expired = false;
           }
           else{
-            todo.expired = true; 
+            todo.expired = true;
+            todo.date = Firebase.ServerValue.TIMESTAMP; 
           }
           todos.$save(todo);
         }

@@ -1,7 +1,7 @@
 ##MyTodo App
 MyTodo (Blocitoff) is a self-destructing todo-list app that uses AngularJS and Firebase for real-time updates to the data model.
 
-This app was developed while taking Bloc.io's Front End Web Developement course.
+**Applicaiton URL:** http://todo-list-angularjs2.herokuapp.com/
 
 ##Layout and Functionality
 
@@ -19,3 +19,7 @@ This app was built to meet the following specifications:
 ##Development Environment
 
 The development environment utilizes Yeoman.
+
+##Notes
+
+App built as part of the Bloc Front-End Developer program.
